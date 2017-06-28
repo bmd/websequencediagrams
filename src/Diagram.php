@@ -59,15 +59,35 @@ class Diagram
     }
 
     /**
+     * @param string $message
+     * @return string
+     */
+    protected function normalize($message)
+    {
+        return trim($message);
+    }
+
+    /**
      * @return Client
      */
     public function getGuzzleClient()
     {
         if (!isset($this->guzzle)) {
-            $this->guzzle = new Client(['base_uri' => self::WSD_URL]);
+            $this->guzzle = new Client();
         }
 
         return $this->guzzle;
+    }
+
+    /**
+     * @param Client $guzzle
+     * @return $this
+     */
+    public function setGuzzleClient($guzzle)
+    {
+        $this->guzzle = $guzzle;
+
+        return $this;
     }
 
     /**
@@ -175,6 +195,14 @@ class Diagram
     }
 
     /**
+     * @return Response
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
      * @return Response|ResponseInterface
      */
     public function render()
@@ -191,7 +219,7 @@ class Diagram
         }
 
         $response = $this->getGuzzleClient()
-            ->post('/', ['form_params' => $postParams]);
+            ->post(self::WSD_URL, ['form_params' => $postParams]);
 
         return $this->response = $response;
     }
@@ -210,7 +238,7 @@ class Diagram
         if ($baseFileName) {
             $fullPath = "{$dir}/{$baseFileName}.{$this->format}";
         } else {
-            $fullPath = "{$dir}/" . md5($this->message) . ".{$this->format}";
+            $fullPath = "{$dir}/" . md5($this->normalize($this->message)) . ".{$this->format}";
         }
 
         $json = json_decode($this->response->getBody()->getContents());
