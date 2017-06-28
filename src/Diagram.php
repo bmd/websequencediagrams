@@ -235,16 +235,13 @@ class Diagram
             throw new \RuntimeException("You must call Diagram::render() before saving the output image");
         }
 
-        if ($baseFileName) {
-            $fullPath = "{$dir}/{$baseFileName}.{$this->format}";
-        } else {
-            $fullPath = "{$dir}/" . md5($this->normalize($this->message)) . ".{$this->format}";
-        }
+        $fname = $baseFileName ? $baseFileName : md5($this->normalize($this->message));
+        $fullPath = "{$dir}/{$fname}.{$this->format}";
 
         $json = json_decode($this->response->getBody()->getContents());
 
         $this->getGuzzleClient()
-            ->get($json->img, ['save_to' => $fullPath]);
+            ->get(self::WSD_URL . $json->img, ['save_to' => $fullPath]);
 
         return $fullPath;
     }
