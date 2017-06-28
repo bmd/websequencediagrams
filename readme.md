@@ -1,7 +1,7 @@
 # Web Sequence Diagram API Client
 
-[![Build Status](https://travis-ci.org/bmd/wsdiagram.svg?branch=master)](https://travis-ci.org/bmd/wsdiagram)
-[![Coverage Status](https://coveralls.io/repos/github/bmd/wsdiagram/badge.svg?branch=master)](https://coveralls.io/github/bmd/wsdiagram?branch=master)
+[![Build Status](https://travis-ci.org/bmd/websequencediagrams.svg?branch=master)](https://travis-ci.org/bmd/websequencediagrams)
+[![Coverage Status](https://coveralls.io/repos/github/bmd/websequencediagrams/badge.svg?branch=master)](https://coveralls.io/github/bmd/websequencediagrams?branch=master)
 
 Installation:
 
