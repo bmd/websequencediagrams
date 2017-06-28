@@ -23,7 +23,11 @@ class DiagramTest extends \PHPUnit_Framework_TestCase
      */
     public function it_should_set_values_from_constructor()
     {
-        $this->markTestIncomplete();
+        $diagram = new Diagram('A->B:', 'default', 'png', 'abcd1234');
+        $this->assertEquals('A->B:', $diagram->getMessage());
+        $this->assertEquals('default', $diagram->getStyle());
+        $this->assertEquals('png', $diagram->getFormat());
+        $this->assertEquals('abcd1234', $diagram->getApiKey());
     }
 
     /**
