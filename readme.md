@@ -17,7 +17,7 @@ Usage:
 use \WebSequenceDiagrams\Diagram;
 
 $diagram = new Diagram(
-    'A->B'
+    'A->B:'
 );
 
 $diagram->setStyle('earth')

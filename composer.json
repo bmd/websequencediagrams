@@ -2,31 +2,32 @@
     "name": "bmd/websequencediagrams",
     "description": "A thin client for the Web Sequence Diagrams API",
     "homepage": "https://github.com/bmd/websequencediagrams",
+    "keywords": ["diagrams", "web sequence diagrams"],
     "type": "library",
-        "require": {
-            "php": ">=5.6",
-            "guzzlehttp/guzzle": "^6.3"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~5.7",
-            "satooshi/php-coveralls": "~1.0",
-            "phpunit/phpcov": "2.*"
-        },
-        "license": "MIT",
-        "authors": [
-            {
-                "name": "Brendan Maione-Downing",
-                "email": "b.maionedowning@gmail.com"
-            }
-        ],
-        "autoload": {
-            "psr-4": {
-                "WebSequenceDiagrams\\": "src/"
-            }
-        },
-        "autoload-dev": {
-            "psr-4": {
-                "Test\\": "test/"
-            }
+    "authors": [
+        {
+          "name": "Brendan Maione-Downing",
+          "email": "b.maionedowning@gmail.com",
+          "homepage": "http://bmd.rocks"
         }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.6",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.7",
+        "satooshi/php-coveralls": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WebSequenceDiagrams\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "test/"
+        }
+    }
 }
