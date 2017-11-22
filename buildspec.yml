@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y jq
+  pre_build:
+    commands:
+      - echo Pre-Build Phase
+  build:
+    commands:
+      - echo build started on `date`
+      - docker run --rm -w /var/www/app -v $(pwd):/var/www/app quay.io/bluestatedigital/composer:7.1.11 composer
+      - docker run --rm -w /var/www/app -v $(pwd):/var/www/app quay.io/bluestatedigital/composer:7.1.11 phpdbg -qrr ./vendor/bin/phpunit --no-coverage
